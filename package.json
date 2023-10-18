@@ -1,6 +1,6 @@
 {
-  "homepage": "https://ege-ayan.github.io/tournament",
-  "name": "tournament-app",
+  "homepage": "https://ege-ayan.github.io/",
+  "name": "tournament",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
