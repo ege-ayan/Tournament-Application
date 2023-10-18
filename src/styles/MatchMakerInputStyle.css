@@ -1,0 +1,171 @@
+.matchmaker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;  /* Distribute space between */
+    background: linear-gradient(-45deg, #020024, #093063, #174a7c, #28648a);
+    min-height: 100vh;  /* Full height of the viewport */
+    max-height: 100vh;  /* Prevent extending beyond viewport */
+    overflow: hidden;  /* No scrolling allowed */
+    color: #fff;
+    background-size: 200% 200%;
+    animation: gradientBackground 15s ease infinite;
+    
+    
+}
+
+.matchmaker-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;  
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+}
+
+.absolute-random-container {
+    width: 10%;  
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background-color: #023345;
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 16px;
+    display: flex;  /* Add flex display */
+    align-items: center;  /* Vertically center the children */
+    justify-content: center; 
+    height: 40px; /* Horizontally center the children */
+    min-width: fit-content;
+}
+
+.player-size-dropdown {
+    width: 15%;  
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background-color: #023345;
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 16px;
+    display: flex;  /* Add flex display */
+    align-items: center;  /* Vertically center the children */
+    justify-content: center; 
+    height: 40px;
+}
+
+input, select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #fff;
+    background-color: #023345;
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+.player-inputs-scrollable {
+    margin-top: 20px;
+    overflow-y: auto;
+    max-height: 500px;
+    width: 70%;
+    display: flex;  
+    flex-direction: column;  
+    align-items: center;  
+    margin-bottom: 100px;
+}
+
+.player-input-container {
+    display: flex;
+    margin-top: 10px;
+    gap: 30px;
+    width: 70%;  
+    margin-bottom: 10px;
+}
+
+.action-container {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centralize content */
+    width: 50%;
+    padding: 0 20px;  
+}
+
+.absolute-random-container {
+    display: flex;
+    align-items: center;
+    width: 10;
+    /* Space between checkbox and label only */
+    
+    margin-right: 10px; /* Additional right margin */
+}
+
+#absoluteRandomCheckbox {
+    margin-right: 10px;
+}
+
+.matchmaker-button {
+    position: fixed;  /* Fixed at the... */
+    bottom: 40px;  /* ...bottom of the page */
+    left: 50%;  /* Centered horizontally */
+    transform: translateX(-50%);  /* Adjust for exact center */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #00bcd4;
+    color: #022c43;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.matchmaker-button:hover {
+    background-color: #00e5ff;
+}
+.settings-container {
+    display: flex;
+    justify-content: center; /* Align items in the center */
+    align-items: center;
+    width: 70%; /* Wider container */
+    margin-bottom: 20px;
+    gap: 30px; /* Space between elements */
+}
+
+/* Adjust height and alignment of the checkbox and label within the container */
+.absolute-random-container input[type="checkbox"], 
+.absolute-random-container label {
+    margin-bottom: 0;  /* Remove bottom margin */
+}
+
+input[type="checkbox"] {
+    align-self: center;  /* Center checkbox */
+}
+
+/* Maintain uniform height for select and input elements */
+select, input[type="text"], input[type="checkbox"] {
+    height: 100%;  /* Full height of parent container */
+}
+
+.player-inputs-scrollable::-webkit-scrollbar {
+    width: 12px; /* Width of the scrollbar */
+}
+
+.player-inputs-scrollable::-webkit-scrollbar-track {
+    border-radius: 10px;
+    background-color: #023345; /* Color of the track */
+}
+
+.player-inputs-scrollable::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    padding-right: 5px; /* Adjust as needed */
+    background-color: #00bcd4; /* Color of the scrollbar thumb */
+    border: 3px solid #023345; /* Border color of the scrollbar thumb */
+}
+
+.player-inputs-scrollable::-webkit-scrollbar-thumb:hover {
+    background-color: #00e5ff; /* Color of the scrollbar thumb on hover */
+}
