@@ -7,8 +7,9 @@ import ManualInput from './components/ManualInput';
 
 const App = () => {
     return (
-        <Router>
+        <Router basename={process.env.PUBLIC_URL}>
             <Routes>
+            
                 <Route path="/matchmaker" element={<Matchmaker />} />
                 <Route path="/automatic-tournament" element={<AutomaticTournament />} />
                 <Route path="/interactive" element={<ManualInput />} />
