@@ -169,3 +169,35 @@ select, input[type="text"], input[type="checkbox"] {
 .player-inputs-scrollable::-webkit-scrollbar-thumb:hover {
     background-color: #00e5ff; /* Color of the scrollbar thumb on hover */
 }
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.button {
+    background: #00bcd4; /* Using the color from the scrollbar for consistency */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+    text-shadow: 0px 0px 10px rgba(255, 255, 255, 0.7);
+    box-shadow: 0px 0px 15px rgba(0, 188, 212, 0.5); /* A subtle shadow to make the button pop */
+}
+
+.button:hover {
+    background: #00e5ff; /* Using the hover color from the scrollbar for consistency */
+    transform: translateY(-2px); /* A slight lift on hover */
+    box-shadow: 0px 0px 20px rgba(0, 229, 255, 0.7);
+}
+
+.button:active {
+    transform: translateY(0); /* Reset position on click */
+    box-shadow: 0px 0px 15px rgba(0, 188, 212, 0.5); /* Reset shadow on click */
+}

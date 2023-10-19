@@ -1,70 +1,50 @@
-# Getting Started with Create React App
+🏆 LoL 2v2 Matchmaker & Tournament Bracket Viewer 🏆
+A next-gen tool built for avid League of Legends players and enthusiasts, enabling you to set up balanced 2v2 matches and view dynamic tournament brackets with ease.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+🔍 Overview
+Ever felt the need for a balanced, fair, and straightforward way to pair up players for a 2v2 match? This web application lets you do just that, be it manually or automatically. Plus, view the tournament's progression with our sleek bracket viewer!
 
-In the project directory, you can run:
+🎮 Modes
+Automatic Mode:
+Simply input players, their ranks, and tiers.
+Our robust algorithm will generate balanced teams of two, ensuring thrilling matchups every time!
+Want to shake things up? Go full random for unpredictable fun!
 
-### `npm start`
+Manual Mode:
+Have specific teams in mind? Easily set up initial teams and watch them compete in the bracket.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+🌐 Features
+Intuitive UI: Easy to navigate, even easier to understand.
+Responsive Design: Designed for both desktop and mobile devices.
+Built for LoL: Specifically tailored for League of Legends ranks and tiers.
+🚀 Getting Started
+Clone the repository:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+bash
+Copy code
+git clone https://github.com/ege-ayan/tournament
+Navigate to the project directory and install the dependencies:
 
-### `npm test`
+bash
+Copy code
+cd path-to-directory
+npm install
+Run the application:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+bash
+Copy code
+npm start
+Visit http://localhost:3000 on your browser and dive into the action!
 
-### `npm run build`
+🛠️ Built With
+React
+react-brackets
+react-router-dom
+react-tournament-bracket
+💖 and passion for gaming!
+🙏 Credits
+League of Legends is a property of Riot Games.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+📝 License
+This project is licensed under the MIT License.

@@ -3,7 +3,7 @@ import '../styles/IndexTitleStyle.css';
 
 const IndexTitle = () => {
     return (
-        <h1 className="app-title">Welcome to the Game Matcher</h1>
+        <h1 className="app-title">Welcome to the 2v2 Tournament</h1>
     );
 };
 

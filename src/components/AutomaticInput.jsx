@@ -1,15 +1,15 @@
 import React, { useState } from 'react';
-import '../styles/MatchMakerInputStyle.css';
+import '../styles/AutomaticInputStyle.css';
 import { useNavigate } from 'react-router-dom';
 
 const ranks = ["Iron","Bronze", "Silver", "Gold", "Platinum", "Emerald", "Diamond", "Master", "GrandMaster", "Challenger"];
 const rankTiers = [1, 2, 3, 4];
 
-const MatchmakerInput = () => {
-    const [playerSize, setPlayerSize] = useState(16);
+const AutomaticInput = () => {
+    const [playerSize, setPlayerSize] = useState(32);
     const [players, setPlayers] = useState(Array.from({ length: playerSize }, () => ({ name: "", rank: "Bronze", rankTier: 1 })));
     const [isAbsoluteRandom, setIsAbsoluteRandom] = useState(false);
-
+    const [auto, setAuto] = useState(true);
 
     const handleInputChange = (index, field, value) => {
         const newPlayers = [...players];
@@ -32,9 +32,7 @@ const MatchmakerInput = () => {
             return;
         }
         
-        // If validation passes, reset warning and navigate to new page
-        console.log("Navigating with players:", players);
-        navigate('/automatic-tournament', { state: { players, isAbsoluteRandom } });
+        navigate('/tournament', { state: { players, isAbsoluteRandom, auto } });
  // Navigating and passing players as state
     };
     const navigate = useNavigate();
@@ -80,23 +78,24 @@ const MatchmakerInput = () => {
                             ))}
                         </select>
                         <select 
-                            value={player.rankTier}
-                            onChange={(e) => handleInputChange(index, 'rankTier', e.target.value)}
-                            disabled={isAbsoluteRandom}
-                        >
-                            {rankTiers.map(tier => (
-                                <option key={tier} value={tier}>Tier {tier}</option>
-                            ))}
-                        </select>
+                    value={player.rankTier}
+                        onChange={(e) => handleInputChange(index, 'rankTier', e.target.value)}
+                        disabled={isAbsoluteRandom || ["Master", "GrandMaster", "Challenger"].includes(player.rank)}
+                            >
+    {rankTiers.map(tier => (
+        <option key={tier} value={tier}>Tier {tier}</option>
+    ))}
+</select>
+
                     </div>
                 ))}
             </div>
             
-            <div className="action-container">
-            <button type="button" className="matchmaker-button" onClick={findMatch}>Find Match</button>
+            <div className="button-container">
+            <button type="button" className="button" onClick={findMatch}>Start Tournament</button>
             </div>
         </div>
     );
 };
 
-export default MatchmakerInput;
+export default AutomaticInput;

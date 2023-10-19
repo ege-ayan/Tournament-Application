@@ -6,7 +6,6 @@ import { useNavigate } from 'react-router-dom';
 
 const IndexPage = () => {
 
-
     const navigate = useNavigate();
 
     const handleCardClick = (path) => {
@@ -14,24 +13,28 @@ const IndexPage = () => {
         navigate(path);
     };
 
-
+    const handleSourceCodeClick = () => {
+        window.open('https://github.com/ege-ayan/tournament', '_blank');
+    };
 
     return (
         <div className="app-container">
             <Title />
             <div className="card-container">
                 <IndexCard 
-                    title="2v2 Automatic" 
-                    onClick={() => handleCardClick('/matchmaker')}
+                    title="Automatic" 
+                    onClick={() => handleCardClick('/automatic')}
                     color="#4caf50" 
                 />
                 <IndexCard 
-                    title="2v2 Manual" 
-                    onClick={() => handleCardClick("/interactive")}
+                    title="Manual" 
+                    onClick={() => handleCardClick("/manual")}
                     color="#f44336" 
                 />
             </div>
-        </div>
+            <div className="button-container"></div>
+                <button onClick={handleSourceCodeClick} className="button">Source Code</button>
+            </div>
     );
 };
 

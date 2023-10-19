@@ -1,10 +1,24 @@
 import React, { useState } from 'react';
 import '../styles/ManualInputStyle.css'; // Adjust this if needed
-
+import { useNavigate } from 'react-router-dom';
 const ManualInput = () => {
+
     const [playerSize, setPlayerSize] = useState(32); // Default to 32 players
     const [players, setPlayers] = useState(Array.from({ length: playerSize }, () => ({ name: "" })));
-
+    const [isAbsoluteRandom, setIsAbsoluteRandom] = useState(false);
+    const [auto, setAuto] = useState(false);
+    const navigate = useNavigate();
+    const findMatch = () => {
+        const isAnyNameEmpty = players.some(player => player.name.trim() === "");
+        
+        // Validation: Check for empty names
+        if (isAnyNameEmpty) {
+            alert("All player names must be filled!"); // Set warning message
+            return;
+        }
+        
+        navigate('/tournament', { state: { players, isAbsoluteRandom, auto } });
+    };
     const handleInputChange = (index, value) => {
         const newPlayers = [...players];
         newPlayers[index].name = value;
@@ -55,8 +69,8 @@ const ManualInput = () => {
     ))}
 </div>
 
-<div className="action-container">
-            <button type="button" className="matchmaker-button" >Start Tournament</button>
+<div className="button-container">
+            <button type="button" className="button"onClick={findMatch} >Start Tournament</button>
             </div>
         </div>
     );

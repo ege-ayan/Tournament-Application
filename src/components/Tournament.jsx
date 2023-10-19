@@ -6,23 +6,79 @@ import {
   SeedItem,
   SeedTeam,
 } from "react-brackets";
-import '../styles/AutomaticTournamentStyle.css';
+import '../styles/TournamentStyle.css';
 
-const genMatches = (players) => {
-  let nTeams = players.length / 2;  // 32 players divided into 16 teams
-  let matchArray = [];
+const shuffleArray = (array) => {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
+  }
+  return array;
+}
+
+const RANK_ENUM = {
+  "Iron": 1,
+  "Bronze": 2,
+  "Silver": 3,
+  "Gold": 4,
+  "Platinum": 5,
+  "Emerald": 6,
+  "Diamond": 7,
+  "Master": 8,
+  "GrandMaster": 9,
+  "Challenger": 10
+};
+const calculateStrength = (player) => {
   
+  return RANK_ENUM[player.rank] - player.rankTier * 0.25;
+}
+
+const genMatches = (players, auto, isAbsoluteRandom) => {
+  if (auto) {
+    if (isAbsoluteRandom) {
+      players = shuffleArray([...players]);
+    } else {
+      players.sort((a, b) => {
+        return calculateStrength(b) - calculateStrength(a);
+      });
+      
+      // New pairing logic:
+      const teams = [];
+      for (let i = 0; i < players.length / 2; i++) {
+        teams.push([
+          players[i],
+          players[players.length - 1 - i]
+        ]);
+      }
+
+      players = [].concat(...teams);  // Flatten the teams array back into players
+    }
+  }
+
+  let nTeams = players.length / 2;
+  let matchArray = [];
+
   const initialTeams = Array.from({ length: nTeams }, (_, i) => ({
     id: i,
     teams: [
-      { id: i * 2, name: players[i * 2].name + " (" + players[i * 2].rank + " " + players[i * 2].rankTier + ")"},
-      { id: i * 2 + 1, name: players[i * 2 + 1].name + " (" + players[i * 2 + 1].rank + " " + players[i * 2 + 1].rankTier + ")"},
+      { 
+        id: i * 2, 
+        name: auto 
+               ? players[i * 2].name + " (" + players[i * 2].rank + " " + players[i * 2].rankTier + ")" 
+               : players[i * 2].name
+      },
+      { 
+        id: i * 2 + 1, 
+        name: auto 
+               ? players[i * 2 + 1].name + " (" + players[i * 2 + 1].rank + " " + players[i * 2 + 1].rankTier + ")" 
+               : players[i * 2 + 1].name
+      },
     ],
   }));
+  
 
   matchArray.push({ title: `Round 1`, seeds: initialTeams });
-  
-  // Generate the empty rounds
+
   while (nTeams > 1) {
     nTeams = (nTeams + 1) >> 1;
     const matches = Array.from({ length: nTeams }, (_, i) => ({
@@ -36,22 +92,23 @@ const genMatches = (players) => {
     const roundTitle = matchArray.length + 1;
     matchArray.push({ title: `Round ${roundTitle}`, seeds: matches });
   }
-  
+
   return matchArray;
 };
 
 
-const AutomaticTournament = () => {
+
+const Tournament = () => {
   const [tabIndex, setTabIndex] = useState(0);
   const location = useLocation();
   const players = location.state?.players || []; 
-
-  
+  const auto = location.state?.auto;
+  const isAbsoluteRandom = location.state?.isAbsoluteRandom;
   const [history, setHistory] = useState([]);
 
   
 
-  const initialRounds = genMatches(players);
+  const initialRounds = genMatches(players, auto, isAbsoluteRandom);
   const [rounds, setRounds] = useState(initialRounds);
 
   const handleSwipeChange = (index) => {
@@ -131,4 +188,4 @@ const AutomaticTournament = () => {
   );
 };
 
-export default AutomaticTournament;
+export default Tournament;

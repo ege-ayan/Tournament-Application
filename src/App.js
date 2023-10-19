@@ -1,18 +1,18 @@
 import React from 'react';
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import IndexPage from './components/IndexPage';
-import Matchmaker from './components/MatchMakerInput';
-import AutomaticTournament from './components/AutomaticTournament';
+import Tournament from './components/Tournament';
 import ManualInput from './components/ManualInput';
+import AutomaticInput from './components/AutomaticInput';
 
 const App = () => {
     return (
-        <Router basename={process.env.PUBLIC_URL}>
+        <Router>
             <Routes>
             
-                <Route path="/matchmaker" element={<Matchmaker />} />
-                <Route path="/automatic-tournament" element={<AutomaticTournament />} />
-                <Route path="/interactive" element={<ManualInput />} />
+                <Route path="/automatic" element={<AutomaticInput />} />
+                <Route path="/tournament" element={<Tournament />} />
+                <Route path="/manual" element={<ManualInput />} />
                 <Route path="/" element={<IndexPage />} />
             </Routes>
         </Router>
