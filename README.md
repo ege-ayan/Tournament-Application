@@ -37,6 +37,11 @@ Copy code
 npm start
 Visit http://localhost:3000 on your browser and dive into the action!
 
+🌐 Website
+The program itself is available at
+https://v2-tournament.web.app/
+
+
 🛠️ Built With
 React
 react-brackets
